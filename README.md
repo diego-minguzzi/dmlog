@@ -9,6 +9,7 @@ The current version supports:
 
 ## How to get the package
 In order to add the package to your go environment, type:
+
 `
 go get github.com/diego-minguzzi/dmlog
 `

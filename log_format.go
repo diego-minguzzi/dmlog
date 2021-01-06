@@ -17,12 +17,12 @@ const (
     FilenameFmt LogFormatItem = iota  // The filename of the source file
     FilenameLineFmt // Filename and line number
     FunctNameFmt // The function name 
-    LineFmt
+    LineFmt // The line number
     ShortTimestampFmt
     LongTimestampFmt
-    SeverityFmt
-    TextFmt
-    LineEndFmt
+    SeverityFmt // The log message severity
+    TextFmt // The text of the log message.
+    LineEndFmt // New line.
 )
 
 // For each everity it caches the corresponding plain text.
@@ -59,7 +59,7 @@ func createMapSeverityToText() map[LogSeverity]string {
 }
 
 /* Formats the input log message according to the format items.
- * Returns the resulting string. */
+   Returns the resulting string. */
 func formatLogMessage( msg *LogMessage, formatItems *LogFormatItems) string {
     if msg==nil {
         panic("Invalid msg argument.")

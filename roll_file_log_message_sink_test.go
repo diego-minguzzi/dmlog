@@ -51,3 +51,20 @@ func TestRollFileSink( t *testing.T) {
     }
 }
 
+func ExampleAddRollFileSink() {
+    filePrefix := "roll_file"
+    const numMaxFiles = 3
+    const maxFileSize = KBytes(100)
+    sinkId, err := AddRollFileSink( ".", filePrefix, numMaxFiles, maxFileSize, DebugSeverity)
+    if err != nil {
+        log.Println(`AddRollFileSink() failed:`,err)            
+        return
+    }
+    log.Println("sindId:",sinkId)
+
+    Debug("Debug message ",time.Now())
+    Info("Info message ",time.Now())
+    Print("Print message ",time.Now())
+}
+
+

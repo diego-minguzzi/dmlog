@@ -109,7 +109,7 @@ func ExampleAddFileSinkCreate() {
 }
 
 /* Example of how to log to a file that appends to an existing file or it creates a new file if
- * it does not exist. */
+   it does not exist. */
 func ExampleAddFileSinkAppend() {
     _, err := AddFileSinkAppend( "log.txt", DebugSeverity) 
     if err != nil {

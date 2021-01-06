@@ -2,7 +2,11 @@ package dmlog
 
 import "fmt"
 
-// Issues a debug log message.
+/* Issues a debug log message.
+   In all functions issuing a log message with signature like 
+   func Debug(v ...interface{}) bool 
+   function arguments are printed using the default formats. 
+   Spaces are added between operands when neither is a string. */
 func Debug(v ...interface{}) bool { 
     return addLogMessage( fmt.Sprint(v...), DebugSeverity, LogMessageType, nil, defaultSkip)
 }

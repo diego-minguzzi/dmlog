@@ -1,6 +1,7 @@
 package dmlog
 
 import "fmt"
+import "log"
 import "os"
 import "testing"
 import "time"
@@ -161,4 +162,24 @@ func ExampleAddConsoleSink() {
     Terminate()
 }
 
+func ExampleSetSinkOutputFormat(){
+    // Releases all log resources when the program terminates.
+    defer Terminate()
+	
+    // Adds a sink that writes to the console.
+    sinkId, err := AddConsoleSink( DebugSeverity)
+    if err!=nil {
+        log.Panicln("AddConsoleSink() failed:",err)
+	}
+    /* Sets a custom format for the console sink, composed of:
+     * filename and line, newline
+     * severity tag, log message, newline
+     */
+    if ! SetSinkOutputFormat(sinkId, LogMessageType, 
+                              FilenameLineFmt, LineEndFmt, SeverityFmt, TextFmt, LineEndFmt) {
+        log.Panicln("SetSinkOutputFormat() failed.")
+   }
+
+    Debug("Debug log message")
+}
 

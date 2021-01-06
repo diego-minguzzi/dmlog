@@ -12,3 +12,7 @@ In order to add the package to your go environment, type:
 `
 go get github.com/diego-minguzzi/dmlog
 `
+
+## Todo
+* Add a Panic() mathod, similar to log.Panic()
+

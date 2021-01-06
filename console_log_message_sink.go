@@ -8,10 +8,9 @@ type consoleLogMessageSink struct {
     BaseLogMessageSink
 }
 
-/*------------------------------------------------------------------------------------------------*/
 /* Adds a log message sink that prints on the console.
- * In case error is nil, the returned message sink id can be used later to modify the severity
- * threshold.
+   In case error is nil, the returned message sink id can be used later to modify the severity
+   threshold.
  */
 func AddConsoleSink( threshold LogSeverity) (MessageSinkId, error) {
     msgSink := newConsoleLogMessageSink( threshold, false)

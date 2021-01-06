@@ -54,7 +54,6 @@ type cmdSetMessageSinkThreshold struct {
     threshold   LogSeverity
 }
 
-//--------------------------------------------------------------------------------------------------
 // Implements the Stringable interface
 func (t LogSeverity) String() string {
     switch t {
@@ -139,7 +138,7 @@ func IsTerminated() bool {
 }
 
 /* Terminate the tracing service.  After termination, all calls to the methods will result in a 
- * fatal.*/
+   fatal.*/
 func Terminate() {
     if ! IsTerminated() {    
         close( context.chReqTerminate)     
@@ -148,7 +147,7 @@ func Terminate() {
 }
 
 /* Sets the global severity threshold.  
- * Messages below the threshold are not forwarded to the sinks. */
+   Messages below the threshold are not forwarded to the sinks. */
 func SetSeverity( severity LogSeverity){
     if IsTerminated() {
       log.Panic( fatalLogTerminated)
@@ -179,8 +178,8 @@ func SetMessageSinkSeverity( sinkId MessageSinkId, threshold LogSeverity) bool {
 }
 
 /* Set the format of for a message type of a given sink.
- * The sink is identified by a valid sinkId.
- * formatItems is a sequence of LogFormatItem elements. */
+   The sink is identified by a valid sinkId.
+  formatItems is a sequence of LogFormatItem elements. */
 func SetSinkOutputFormat( sinkId MessageSinkId, 
                           messageType MessageType, 
                           formatItems ...LogFormatItem) bool {
@@ -226,7 +225,6 @@ func addLogMessage( text string,
     return false
 }
 
-//--------------------------------------------------------------------------------------------------
 func (s LogSeverity) IsGreaterOrEqualThan(that LogSeverity) bool {
     switch s {
         case DebugSeverity: {

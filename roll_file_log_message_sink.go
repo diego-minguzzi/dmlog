@@ -36,11 +36,12 @@ type rollFileLogMessageSink struct {
     chReplyTerminate  chan struct{} 
 }
 
-/*------------------------------------------------------------------------------------------------*/
-/* Adds a log message sink that write messages to the specified file.
- * If a file with the same name already exists, its content is erased.
- * In case error is nil, the returned message sink id can be used later to modify the severity 
- * threshold.*/
+/* Adds a trace message sink that write messages into log files stored in the directory dirPath.
+   The created files have the given filePrefix.
+   At most numMaxFiles matching the dirPath and the filePrefix are kept, then the oldest is erased.
+   Moreover, each log file size is at most maxFileSize, expressed into kBytes.
+   In case error is nil, the returned message sink id can be used later to modify the severity 
+   threshold.*/
 func AddRollFileSink( dirPath         string,
                       filePrefix      string,
                       numMaxFiles     int,

@@ -9,27 +9,24 @@ type fileLogMessageSink struct {
     outFile *os.File
 }
 
-/*------------------------------------------------------------------------------------------------*/
 /* Adds a log message sink that write messages to the specified file.
- * If a file with the same name already exists, its content is erased.
- * In case error is nil, the returned message sink id can be used later to modify the severity 
- * threshold.*/
+   If a file with the same name already exists, its content is erased.
+   In case error is nil, the returned message sink id can be used later to modify the severity 
+   threshold.*/
 func AddFileSinkCreate( filename string, threshold LogSeverity) (MessageSinkId, error) {
     return AddFileSink( filename, false, threshold, false)
 }
 
-/*------------------------------------------------------------------------------------------------*/
 /* Adds a log message sink that append messages to the specified file.
- * In case error is nil, the returned message sink id can be used later to modify the severity 
- * threshold.*/
+   In case error is nil, the returned message sink id can be used later to modify the severity 
+   threshold.*/
 func AddFileSinkAppend( filename string, threshold LogSeverity) (MessageSinkId, error) {
     return AddFileSink( filename, true, threshold, false)
 }
 
-/*------------------------------------------------------------------------------------------------*/
 /* Adds a log message sink that prints on the specified file.
- * In case error is nil, the returned message sink id can be used later to modify the severity 
- * threshold.   */
+   In case error is nil, the returned message sink id can be used later to modify the severity 
+   threshold.   */
 func AddFileSink( filename string, 
                   appendExisting bool, 
                   threshold LogSeverity, 

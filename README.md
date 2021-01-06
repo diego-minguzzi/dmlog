@@ -59,6 +59,32 @@ func main() {
     // [...]
 }
 ```
+On my Linux laptop, the console output is:
+```
+/home/minguzzi/go/src/my_usage.go:32 
+[WRN] Warning message 
+
+A printed message 
+
+```
+(The console has Info severity).
+
+While the content of the log file log_file.txt is:
+```
+/home/minguzzi/go/src/my_usage.go:31 2021-01-06 22:29:40.834 
+[DBG] Debug message 
+
+/home/minguzzi/go/src/my_usage.go:32 2021-01-06 22:29:40.834 
+[WRN] Warning message 
+
+A printed message 
+
+/home/minguzzi/go/src/my_usage.go:7 2021-01-06 22:29:40.834 
+[DBG] main.myFunc() started 
+
+/home/minguzzi/go/src/my_usage.go:7 2021-01-06 22:29:40.834 
+[DBG] main.myFunc() terminated 
+```
 
 ## Documentation
 [Docs hosted by GitHub](https://godoc.org/github.com/diego-minguzzi/dmlog)

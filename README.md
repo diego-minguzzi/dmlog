@@ -18,8 +18,7 @@ go get github.com/diego-minguzzi/dmlog
 
 ## Usage example
 
-`
-
+```
 package main
 
 import "dmlog"
@@ -59,7 +58,7 @@ func main() {
     
     // [...]
 }
-`
+```
 
 ## Documentation
 [Docs hosted by GitHub](https://godoc.org/github.com/diego-minguzzi/dmlog)
